@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../Inventura.Application"/>
-    <ProjectReference Include="../Inventura.Infrastructure"/>
+    <ProjectReference Include="../Inventura.Application/Inventura.Application.csproj" />
+    <ProjectReference Include="../Inventura.Infrastructure/Inventura.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
