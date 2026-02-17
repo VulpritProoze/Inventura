@@ -1,3 +1,4 @@
+using Inventura.Infrastructure.Constants;
 using Inventura.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -11,9 +12,16 @@ public static class DependencyInjection
         IConfiguration configuration
     )
     {
+        var connectionString = configuration.GetConnectionString(EnvVarKeys.ConnectionString);
+        Guard.Against.NullOrEmpty(
+            connectionString,
+            EnvVarKeys.ConnectionString,
+            ExceptionMessages.MissingEnv
+        );
+
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseNpgsql(
-                configuration.GetConnectionString("DefaultConnection"),
+                connectionString,
                 b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)
             )
         );
