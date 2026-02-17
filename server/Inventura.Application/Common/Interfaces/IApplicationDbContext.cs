@@ -1,5 +1,3 @@
 namespace Inventura.Application.Common.Interfaces;
 
-public interface IApplicationDbContext
-{
-}
+public interface IApplicationDbContext { }
