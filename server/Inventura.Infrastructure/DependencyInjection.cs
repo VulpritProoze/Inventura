@@ -1,6 +1,8 @@
 using Inventura.Infrastructure.Constants;
 using Inventura.Infrastructure.Data;
+using Inventura.Infrastructure.Data.Interceptors;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 
 namespace Microsoft.Extensions.DependencyInjection;
@@ -18,6 +20,9 @@ public static class DependencyInjection
             EnvVarKeys.ConnectionString,
             ExceptionMessages.MissingEnv
         );
+
+        services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
+        services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
 
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseNpgsql(
