@@ -5,7 +5,7 @@ namespace Inventura.Infrastructure.Constants;
 /// hardcoding keys that may need to be declared e.g. when trying to check if the value of a secret
 /// which can be null
 /// </summary>
-public static class EnvVarKeys
+public static class EnvironmentVariableKeys
 {
     /// <summary>
     /// Database connection

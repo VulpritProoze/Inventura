@@ -1,3 +1,4 @@
+using Inventura.Infrastructure.Constants;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -45,7 +46,7 @@ public class ApplicationDbContextInitializer
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "An error occurred while initializing the database.");
+            _logger.LogError(ex, LoggingMessages.InitializeDatabaseError);
             throw;
         }
     }
@@ -58,7 +59,7 @@ public class ApplicationDbContextInitializer
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "An error occurred while seeding the database.");
+            _logger.LogError(ex, LoggingMessages.SeedDatabaseError);
             throw;
         }
     }
