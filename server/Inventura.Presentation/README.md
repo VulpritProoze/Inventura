@@ -1,4 +1,4 @@
-# Inventura.Web
+# Inventura.Presentation
 The **Entry Point**. This is the wrapper that exposes the application to the internet.
 
 ### What lives here:
@@ -9,3 +9,4 @@ The **Entry Point**. This is the wrapper that exposes the application to the int
 
 ### Rule:
 - Only acts as a translator between the user (HTTP) and the **Application** layer.
+- Some services may be defined in the **Infrastructure** layer such as an email service.
