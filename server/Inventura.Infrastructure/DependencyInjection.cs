@@ -1,3 +1,4 @@
+using Inventura.Application.Common.Interfaces;
 using Inventura.Infrastructure.Constants;
 using Inventura.Infrastructure.Data;
 using Inventura.Infrastructure.Data.Interceptors;
@@ -30,6 +31,11 @@ public static class DependencyInjection
                 b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)
             )
         );
+
+        services.AddScoped<IApplicationDbContext>(provider =>
+            provider.GetRequiredService<ApplicationDbContext>()
+        );
+        services.AddScoped<ApplicationDbContextInitializer>();
 
         return services;
     }
