@@ -1,0 +1,1 @@
+namespace Inventura.Domain.Exceptions;
