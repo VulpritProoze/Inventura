@@ -20,6 +20,11 @@ else
     app.UseHsts();
 }
 
-app.MapControllers();
+app.UseHealthChecks("/health");
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseExceptionHandler(options => { });
+app.Map("/", () => Results.Redirect("/api"));
+app.MapEndpoints();
 
 app.Run();

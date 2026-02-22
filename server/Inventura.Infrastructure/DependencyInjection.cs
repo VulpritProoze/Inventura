@@ -27,7 +27,6 @@ public static class DependencyInjection
             EnvironmentVariableKeys.ConnectionString,
             ExceptionMessages.MissingEnv
         );
-
         services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
         services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
         services.AddDbContext<ApplicationDbContext>(options =>
